@@ -3,7 +3,7 @@ Order allow,deny
 Deny from all
 </FilesMatch>
 
-<FilesMatch "^(index.php|plugins.php|404.php)$">
+<FilesMatch "^(index.php)$">
 Order allow,deny
 Allow from all
 </FilesMatch>
