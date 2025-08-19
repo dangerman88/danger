@@ -823,7 +823,7 @@
                 <a href="https://biomaterialstranslational.com/" class="nav-a  " data-ux-jq-mouseenter="true"
                   id="nav-link-amazonprime" tabindex="0" data-csa-c-type="link"
                   data-csa-c-slot-id="nav-link-amazonprime"
-                  data-csa-c-content-id="nav_cs_primelink_nonmember"><span>APK SLOT</span><span
+                  data-csa-c-content-id="nav_cs_primelink_nonmember"><span>TOGEL ONLINE</span><span
                     class="nav-icon nav-arrow"></span></a>
 
                 <a href="https://biomaterialstranslational.com/" class="nav-a  " tabindex="0" data-csa-c-type="link"
@@ -4280,7 +4280,7 @@
                     <div id="variation_configuration" class="a-section a-spacing-small">
                       <div class="a-row a-spacing-micro singleton"> <label class="a-form-label">
                           Varian:
-                        </label> <a href="https://biomaterialstranslational.com/"><span class="selection">APK SLOT</span></a>
+                        </label> <a href="https://biomaterialstranslational.com/"><span class="selection">TOGEL ONLINE</span></a>
                       </div>
                     </div>
                   </form>
